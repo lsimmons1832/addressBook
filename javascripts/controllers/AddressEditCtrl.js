@@ -1,0 +1,3 @@
+app.controller("AddressEditCtrl", function ($location, $routeParams, $scope, ItemFactory) {
+	// body...
+});

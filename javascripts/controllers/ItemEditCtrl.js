@@ -1,3 +1,0 @@
-app.controller("ItemEditCtrl", function ($location, $routeParams, $scope, ItemFactory) {
-	// body...
-});

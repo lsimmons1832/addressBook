@@ -1,25 +1,31 @@
 {
     "contacts": {
         "contact0": {
-            "name": "Henry Horton",
+            "Fname": "Henry",
+            "Lname": "Horton",
             "address": "123 Anytown",
-            "city": "Nashville",
-            "state": "TN",
-            "zip": 37013
+            "city": "Saint Louis",
+            "state": "MO",
+            "zip": 37013,
+            "phone": "314-789-6543"
         },
         "contact1": {
-            "name": "Pam Pickles",
+            "Fname": "Pam",
+            "Lname": "Pickles",
             "address": "456 Anytown",
             "city": "Nashville",
             "state": "TN",
-            "zip": 37013
+            "zip": 37013,
+            "phone": "615-213-6549"
         },
         "contact2": {
-            "name": "Cherry Pie",
+            "Fname": "Cherry",
+            "Lname": "Pie",
             "address": "789 Anytown",
             "city": "Nashville",
             "state": "TN",
-            "zip": 37013
+            "zip": 37013,
+            "phone": "901-654-7890"
         }
     }
 }
