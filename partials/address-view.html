@@ -1,4 +1,4 @@
-<h1>Name: {{selectedContact.Fname}}{{selectedContact.Lname}}</h1>
+<h1>Name: {{selectedContact.Fname}} {{selectedContact.Lname}}</h1>
 <h4>Address: {{selectedContact.address}}</h4>
 <h4>{{selectedContact.city}}, {{selectedContact.state}} {{selectedContact.zip}}</h4>
-<button></button>
+<button class="btn btn-warning"><a ng-href="#!/address/edit/{{selectedContact.id}}">Edit Contact</a></button>

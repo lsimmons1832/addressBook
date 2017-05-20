@@ -1,16 +1,15 @@
 app.controller("AddressEditCtrl", function ($location, $routeParams, $scope, AddressFactory) {
 	$scope.newContact = {};
 
-	AddressFactory.getContactItem($routeParams.id)
+	AddressFactory.getSingleContact($routeParams.id)
 	.then((results) => {
-		console.log("results", results);
 		$scope.newContact = results.data;
 	}).catch((error) => {
 		console.log("getContactItem error", error);
 	});
 
 	$scope.AddNewContact = () => {
-		AddressFactory.editContact($scope.newContact)
+		AddressFactory.modifyContact($scope.newContact)
 		.then(() => {
 			$location.url('/address/list');
 		}).catch((error) => {

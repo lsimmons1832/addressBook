@@ -18,7 +18,7 @@ app.factory("AddressFactory", function($http, $q, FIREBASE_CONFIG){
 		});
 	};
 
-	let getContactItem = () =>{
+	let getSingleContact = (id) =>{
 		return $q((resolve, reject) =>{
 			$http.get(`${FIREBASE_CONFIG.databaseURL}/contacts/${id}.json`)
 			.then((results) =>{
@@ -30,7 +30,20 @@ app.factory("AddressFactory", function($http, $q, FIREBASE_CONFIG){
 		});
 	};
 
-	let editContact = (contact) => {
+	let postNewContact = (newContact) => {
+		return $q((resolve, reject) => {
+			$http.post(`${FIREBASE_CONFIG.databaseURL}/contacts.json`, 
+				JSON.stringify(newContact))
+			.then((resultz) => {
+				resolve(resultz);
+			}).catch((error) =>{
+				reject(error);
+			});
+		});
+	};
+
+	let modifyContact = (contact) => {
+		console.log("contact passed in", contact);
 		return $q((resolve, reject) => {
 			$http.put(`${FIREBASE_CONFIG.databaseURL}/contacts/${contact.id}.json`,
 				JSON.stringify({
@@ -41,15 +54,24 @@ app.factory("AddressFactory", function($http, $q, FIREBASE_CONFIG){
 					zip: contact.zip,
 					phone: contact.phone
 				})
-				).then((returnData) =>{
-					resolve(returnData);
+				).then((resultz) =>{
+					resolve(resultz);
 				}).catch((error) =>{
 					reject(error);
 				});
 		});
 	};
 
+let deleteContact = (contactId) => {
+	return $q((resolve, reject) => {
+		$http.delete(`${FIREBASE_CONFIG.databaseURL}/contacts/${contactId}.json`)
+	}).then((deleted) =>{
+		resolve(deleted);
+	}).catch((error) =>{
+		reject(error);
+	});
+};
 
 
-	return{getContactList:getContactList, getContactItem:getContactItem, editContact:editContact};
+	return{getContactList:getContactList, getSingleContact:getSingleContact, modifyContact:modifyContact, postNewContact:postNewContact, deleteContact:deleteContact};
 });
