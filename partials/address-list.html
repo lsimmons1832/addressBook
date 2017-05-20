@@ -1,0 +1,13 @@
+<input type="text" placeholder="Search Contacts" ng-model="searchText">
+<h3>Contact List</h3>
+<div ng-repeat="item in contacts | filter: searchText">
+	<div class="panel panel-default">
+		<div class="panel-heading"><h3 class="panel-title"><a href="#!/address/view/{{address.id}}">{{item.Fname}} {{item.Lname}}</a></h3></div>
+			<div class="panel-body">
+				<p>{{item.address}}</p>
+				<p>{{item.city}}, {{item.state}}     {{item.zip}}</p>
+				<p>{{item.phone}}</p>
+			</div>
+		</div>
+	</div>
+</div>

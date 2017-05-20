@@ -1,4 +1,4 @@
-app.factory("AddressBookFactory", function($http, $q, FIREBASE_CONFIG){
+app.factory("AddressFactory", function($http, $q, FIREBASE_CONFIG){
 	let getContactList = () => {
 		let contacts = [];
 		return $q((resolve, reject) =>{
@@ -29,4 +29,27 @@ app.factory("AddressBookFactory", function($http, $q, FIREBASE_CONFIG){
 			});
 		});
 	};
+
+	let editContact = (contact) => {
+		return $q((resolve, reject) => {
+			$http.put(`${FIREBASE_CONFIG.databaseURL}/contacts/${contact.id}.json`,
+				JSON.stringify({
+					Fname: contact.Fname,
+					Lname: contact.Lname,
+					address: contact.address,
+					city: contact.city,
+					zip: contact.zip,
+					phone: contact.phone
+				})
+				).then((returnData) =>{
+					resolve(returnData);
+				}).catch((error) =>{
+					reject(error);
+				});
+		});
+	};
+
+
+
+	return{getContactList:getContactList, getContactItem:getContactItem, editContact:editContact};
 });
