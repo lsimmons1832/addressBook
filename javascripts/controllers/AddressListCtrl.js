@@ -12,17 +12,18 @@ app.controller("AddressListCtrl", function ($scope, AddressFactory) {
 	getContacts();
 
 	$scope.deleteContact = (id) =>{
-		AddressFactory.delete(id).then(() => {
+		AddressFactory.deleteContact(id).then(() => {
 			getContacts();
 		}).catch((error) => {
 			console.log("deleteContact error", error);
 		});
 	};
 
-	$scope.modifyContact = (contact) => {
-		AddressFactory.modifyContact(contact).then(() =>{
-		}).catch((error) => {
-			console.log("modifyContact error", error);
+		$scope.addNewAddress = () => {
+		AddressFactory.modifyContact($scope.newContact).then(() => {
+		$location.url('/address/list');
+		}).catch((error) =>{
+			console.log("editContact", error);
 		});
 	};
 

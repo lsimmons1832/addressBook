@@ -8,11 +8,10 @@ app.controller("AddressEditCtrl", function ($location, $routeParams, $scope, Add
 		console.log("getContactItem error", error);
 	});
 
-	$scope.AddNewContact = () => {
-		AddressFactory.modifyContact($scope.newContact)
-		.then(() => {
+		$scope.addNewAddress = () => {
+		AddressFactory.modifyContact($scope.newContact).then(() => {
 			$location.url('/address/list');
-		}).catch((error) => {
+		}).catch((error) =>{
 			console.log("editContact", error);
 		});
 	};

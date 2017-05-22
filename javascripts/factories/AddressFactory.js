@@ -42,35 +42,38 @@ app.factory("AddressFactory", function($http, $q, FIREBASE_CONFIG){
 		});
 	};
 
-	let modifyContact = (contact) => {
-		console.log("contact passed in", contact);
+
+		let modifyContact = (contact) =>{
 		return $q((resolve, reject) => {
 			$http.put(`${FIREBASE_CONFIG.databaseURL}/contacts/${contact.id}.json`,
-				JSON.stringify({
+			JSON.stringify({
 					Fname: contact.Fname,
 					Lname: contact.Lname,
 					address: contact.address,
 					city: contact.city,
+					state: contact.state,
 					zip: contact.zip,
 					phone: contact.phone
-				})
-				).then((resultz) =>{
-					resolve(resultz);
-				}).catch((error) =>{
-					reject(error);
-				});
+			})
+			).then((resultz) => {
+				resolve(resultz);
+			}).catch((error) =>{
+				reject(error);
+			});
 		});
 	};
 
-let deleteContact = (contactId) => {
-	return $q((resolve, reject) => {
-		$http.delete(`${FIREBASE_CONFIG.databaseURL}/contacts/${contactId}.json`)
-	}).then((deleted) =>{
-		resolve(deleted);
-	}).catch((error) =>{
-		reject(error);
-	});
-};
+
+	let deleteContact = (contactId) =>{
+		return $q((resolve, reject) => {
+			$http.delete(`${FIREBASE_CONFIG.databaseURL}/contacts/${contactId}.json`)
+			.then((deletz) => {
+				resolve(deletz);
+			}).catch((error) => {
+				reject(error);
+			});
+		});
+	};
 
 
 	return{getContactList:getContactList, getSingleContact:getSingleContact, modifyContact:modifyContact, postNewContact:postNewContact, deleteContact:deleteContact};
