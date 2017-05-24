@@ -7,6 +7,7 @@
             "city": "Saint Louis",
             "state": "MO",
             "zip": 37013,
+            "uid": "WxobFxysSagssv7svK28IyjDGsJ2",
             "phone": "314-789-6543"
         },
         "contact1": {
@@ -16,6 +17,7 @@
             "city": "Nashville",
             "state": "TN",
             "zip": 37013,
+            "uid": "WxobFxysSagssv7svK28IyjDGsJ2",
             "phone": "615-213-6549"
         },
         "contact2": {
@@ -25,7 +27,18 @@
             "city": "Nashville",
             "state": "TN",
             "zip": 37013,
+            "uid": "QJ5GiTFGq7OiZSsEQ7td7uYCupI3",
             "phone": "901-654-7890"
+        },
+        "users":{
+            "user0": {
+                "uid":"WxobFxysSagssv7svK28IyjDGsJ2",
+                "username": "ls"
+            },
+            "user1": {
+                "uid": "QJ5GiTFGq7OiZSsEQ7td7uYCupI3",
+                "username": "a"
+            }
         }
     }
 }

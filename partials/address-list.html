@@ -2,7 +2,7 @@
 <h3>Contact List</h3>
 <div ng-repeat="item in contacts | filter: searchText">
 	<div class="panel panel-default">
-		<div class="panel-heading"><h3 class="panel-title"><a ng-href="#!/address/view/{{item.id}}">{{item.Fname}} {{item.Lname}}</a></h3>     <button class="btn fa fa-pencil" ng-href="#!/address/view/{{item.id}}" ng-click="addNewContact(item.id)"></button><button class="btn fa fa-trash-o" ng-click="deleteContact(item.id)"></button></div>
+		<div class="panel-heading"><h3 class="panel-title"><a ng-href="#!/address/view/{{item.id}}">{{item.Fname}} {{item.Lname}}</a></h3>     <button><a class="fa fa-pencil" ng-href="#!/address/view/{{item.id}}"></a></button><button ng-click="deleteContact(item.id)"><a class="fa fa-trash-o"></a></button></div>
 			<div class="panel-body">
 				<p>{{item.address}}</p>
 				<p>{{item.city}}, {{item.state}}     {{item.zip}}</p>
